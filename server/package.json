@@ -1,0 +1,31 @@
+{
+  "name": "smarthomeapp",
+  "version": "1.0.0",
+  "description": "Smart Home",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --tls-cipher-list=ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384 main.js"
+  },
+  "repository": {},
+  "author": "",
+  "license": "ISC",
+  "bugs": {},
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "1.18.3",
+    "express": "^4.16.4",
+    "helmet": "^3.14.0",
+    "jsonwebtoken": "^8.3.0",
+    "moment": "^2.22.2",
+    "moment-timezone": "^0.5.21",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.3.13",
+    "mongoose-unique-validator": "^2.0.2",
+    "spdy": "^4.0.0",
+    "swagger-ui-express": "^4.0.1",
+    "sync-request": "^6.0.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {}
+}

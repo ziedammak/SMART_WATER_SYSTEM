@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons left>
+      <button ion-button icon-only *ngIf="!isOn" (click)="toggleDetails()" color="royal">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title *ngIf="!isOn">Search...</ion-title>
+    <ion-searchbar *ngIf="isOn" (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-buttons right>
+      <button ion-button icon-only *ngIf="!isOn" (click)="logout()" color="royal">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons right>
+      <button ion-button icon-only *ngIf="isOn" (click)="toggleDetails()" color="royal">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="alice">
+
+  <ion-list>
+    <ion-item class="cursuve" *ngFor="let r of reservoirs" (click)="reservoirDetails(r.Id)">
+      <ion-icon name="square" color="{{iconColor(r)}}" class="levelState"></ion-icon>
+      {{ r.Name }}
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-fab *ngIf="isAdminn" right  bottom>
+  <button ion-fab class="add-button" (click)="add()" ><ion-icon color="white" name="add"></ion-icon></button>
+</ion-fab>
+
+<ion-footer class="blue">
+  <button ion-button full (click)="refresh()">Refresh</button>
+</ion-footer>

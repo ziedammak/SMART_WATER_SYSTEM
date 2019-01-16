@@ -1,0 +1,50 @@
+<!--
+  Generated template for the AddReservoirPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Reservoir</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="add()" #registerForm="ngForm">
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-list-header class="res-details">
+            Reservoir_Details
+          </ion-list-header>
+          <ion-item>
+            <ion-input type="text" placeholder="Reservoir Name" name="name" [(ngModel)]="addCredentials.name" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" placeholder="Max level of water (L)" name="max" [(ngModel)]="addCredentials.max" required></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-list >
+          <ion-list-header class="res-users">
+            Select Users
+          </ion-list-header>
+          <ion-toolbar color="white">
+            <ion-searchbar full  (ionInput)="getItems($event)"></ion-searchbar>
+            </ion-toolbar>
+              <ion-item *ngFor="let user of listOfFiltredUsers" >
+                <ion-label >{{ user.Mail }}</ion-label>
+                <ion-checkbox checked="{{ user.IsChecked }}" (click)="checkItemState(user.Id)" color="danger"></ion-checkbox>
+              </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
+
+<ion-footer class="blue">
+  <button ion-button class="submit-btn" full (click)="add()" [disabled]="!registerForm.form.valid">Add Reservoir</button>
+</ion-footer>
